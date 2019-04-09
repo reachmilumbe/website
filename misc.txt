@@ -1,4 +1,7 @@
 
 '''' Ensure proper front end validation using Javascript
 '''' Explore difference between textContent and innerHTML
+
+'''' It seems git makes sense
+
 '''' Get inspiration for Kelvin's website from https://hpotrading.com/
