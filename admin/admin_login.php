@@ -1,33 +1,30 @@
+<?php session_start(); ?>
+
 <?php
-	$pageTitle = "Admin Login";
-	include("../includes/head.php");
-	include("../phpscripts/Database.php");
 
-	class Admin extends Database
+$pageTitle = "Admin Login";
+include("../includes/head.php");
+include("../phpscripts/Database.php");
+
+$admin = new Database();
+
+if (isset($_POST["admin_login"]))
+{
+	$admin_email 	= $_POST["admin_email"];
+	$admin_password = $_POST["admin_password"];
+
+	$query = "SELECT * FROM `admins` WHERE `admin_email` = ? AND `admin_password` = ?";
+	$params = [$admin_email, $admin_password];
+
+	$admin = $admin->getRow($query, $params);
+	
+	if ($admin)
 	{
-		public $admin_email, $admin_password, $query, $params;
-
-		public function __construct()
-		{
-			$this->admin_email		 = $_POST["admin_email"];
-			$this->admin_password	 = $_POST["admin_password"];
-
-			// Query the database for use with provided credentials
-			$this->query = "SELECT * FROM `admins` WHERE `admin_email` = ? AND `admin_password` = ?";
-			$this->params = [$this->admin_email, $this->admin_password];
-		}
-
-		public function auth_admin()
-		{
-			if (isset($_POST["admin_login"]))
-			{
-				getRows($this->query, $this->params);
-			}
-		}
+		$_SESSION["admin_first_name"] = $admin["admin_first_name"];
+		Header("Location: dashboard.php");
 	}
-
-
-	$admin = new Admin();
-	$admin->auth_admin();
-
-
+	else
+	{
+		echo "We got a problem, Sir!";
+	}
+}

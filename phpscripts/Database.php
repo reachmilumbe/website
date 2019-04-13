@@ -86,11 +86,6 @@
 				throw new Exception($e->getMessage());
 			}
 		}
-
-		public function sayHello($name)
-		{
-			echo "Hello: {$name}";
-		}
 	}
 
 	
