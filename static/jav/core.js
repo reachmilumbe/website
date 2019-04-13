@@ -10,14 +10,16 @@ function formValidation()
 	let sender_name 	= document.forms["contact_form"]["sender_name"];
 	let sender_email 	= document.forms["contact_form"]["sender_email"];
 	let msg_body 		= document.forms["contact_form"]["msg_body"];
+    let select_value    = document.forms["contact_form"]["msg_cat"];
 
     // Gather input fields into an array
-    let input_fields = [sender_name, sender_email, msg_body];
+    let input_fields = [sender_name, sender_email, msg_body, select_value];
 
-    // Get the input displays tags
+    // Get the paragraph error displays tags
     let name_disp = document.querySelector("#name_disp");
     let email_disp = document.querySelector("#email_disp");
     let msg_disp = document.querySelector("#msg_disp");
+    let select_dis = document.querySelector("#select_dis");
 
     let form_errors = [];
 
@@ -74,6 +76,18 @@ function formValidation()
             email_disp.textContent = "";
         }
 
+        if (select_value.value == "")
+        {
+            select_value.style.borderColor = "red";
+            select_dis.textContent = "Please make selection";
+            form_errors.push("Invalid selection");
+        }
+        else
+        {
+            select_value.style.borderColor = "green";
+            select_dis.textContent = "";
+        }
+
         if (msg_body.value == "")
         {
             msg_body.style.borderColor = "red";
@@ -94,4 +108,11 @@ function formValidation()
 
     return true;
 
+}
+
+const regex_patterns = 
+{
+    name : /^$/,
+    email: /^$/,
+    textarea: /^$/,
 }

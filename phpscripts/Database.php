@@ -24,7 +24,8 @@
 			}
 		}
 
-		public function sendMessage($query, $params=[])
+		// Insert row into the table
+		public function insertRow($query, $params = [])
 		{
 			try
 			{
@@ -39,6 +40,57 @@
 			}
 		}
 
+		// Fetch a single row from the database
+		public function getRow($query, $params = [])
+		{
+			try
+			{
+				$stmt = $this->dsn->prepare($query);
+				$stmt->execute($params);
+				return $stmt->fetch(PDO::FETCH_ASSOC);
+			}
+			catch (Exception $e)
+			{
+				throw new Exception($e->getMessage());
+			}
+		}
+
+		// Fetch multiple rows from table
+		public function getRows($query, $params = [])
+		{
+			try
+			{
+				$stmt = $this->dsn->prepare($query);
+				$stmt->execute($params);
+				return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			}
+			catch (Exception $e)
+			{
+				throw new Exception($e->getMessage());
+			}
+		}
+
+		// Delete row from table
+		public function deleteRow($query, $params = [])
+		{
+			try
+			{
+				$stmt = $this->dsn->prepare($query);
+				$stmt->execute($params);
+				return TRUE;
+
+			}
+			catch (Exception $e)
+			{
+				throw new Exception($e->getMessage());
+			}
+		}
+
+		public function sayHello($name)
+		{
+			echo "Hello: {$name}";
+		}
 	}
 
 	

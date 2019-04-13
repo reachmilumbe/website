@@ -3,7 +3,7 @@
 
 	Class Contact extends Database
 	{
-		public $sender_name, $sender_email, $msg_body;
+		public $sender_name, $sender_email, $msg_body, $msg_cat;
 
 		public function getFormValues()
 		{
@@ -11,6 +11,7 @@
 			{
 				$this->sender_name	 = $_POST["sender_name"];
 				$this->sender_email	 = $_POST["sender_email"];
+				$this->msg_cat 		 = $_POST["msg_cat"];
 				$this->msg_body 	 = $_POST["msg_body"];
 			}
 
@@ -19,7 +20,7 @@
 	}
 
 	$the_msg = new Contact();
-	$the_msg->getFormValues()->sendMessage("INSERT INTO `messages` (msg_sender, msg_sender_email, msg_body) VALUES (?, ?, ?)", [$the_msg->sender_name, $the_msg->sender_email, $the_msg
+	$the_msg->getFormValues()->insertRow("INSERT INTO `messages` (msg_sender, msg_sender_email, msg_cat, msg_body) VALUES (?, ?, ?, ?)", [$the_msg->sender_name, $the_msg->sender_email, $the_msg->msg_cat, $the_msg
 		->msg_body]);
 
 

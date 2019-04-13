@@ -5,3 +5,5 @@
 '''' It seems git makes sense
 
 '''' Get inspiration for Kelvin's website from https://hpotrading.com/
+
+'''' Continue working on Admin login and authentication

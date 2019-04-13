@@ -1,22 +1,6 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php $pageTitle = "reachmilumbe | Home"; ?>
+<?php include("includes/head.php"); ?>
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
-
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-		<!-- Core css -->
-		<link rel="stylesheet" href="static/css/core.css">
-
-		<title>Web Development | Music | Health | reachmilumbe.com</title>
-	</head>
-
-	<body>
 		<!-- The Jombotron -->
 		<div class="wrapper">
 			<div class="container">
@@ -48,6 +32,17 @@
 							<small><p id="email_disp" class="text-danger"></p></small>
 						</div>
 						<div class="form-group">
+							<select class="form-control" name="msg_cat">
+								<option value="">Reason for message</option>
+								<option value="Web Development">Web Development</option>
+								<option value="Microsoft Office">Microsoft Office</option>
+								<option value="Teaching">Teaching</option>
+								<option value="Other">Other</option>
+							</select>
+							<small><p id="select_dis" class="text-danger"></p></small>
+						</div>
+
+						<div class="form-group">
 							<textarea class="form-control" name="msg_body" placeholder="Your message..."></textarea>
 							<small><p id="msg_disp" class="text-danger"></p></small>
 						</div>
@@ -74,21 +69,4 @@
 			</div>
 		</div>
 
-		<div class="container mt-5">
-			<div class="container">
-				<div class="row justify-content-md-center">
-					<div class="col-sm-8 footer_top_line">
-						<center><small><p id="footer_date">&copy </p></small></center>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Core Javascript -->
-		<script type="text/javascript" src="static/jav/core.js"></script>
-		<!-- Framework Javascript -->
-		<script type="text/javascript" src="static/jav/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="static/jav/popper.min.js"></script>
-		<script type="text/javascript" src="static/jav/bootstrap.min.js"></script>
-	</body>
-</html>
+		<?php include("includes/footer.php"); ?>

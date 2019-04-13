@@ -17,6 +17,7 @@ html
 	align-items: center;	
 	background: linear-gradient(25.9deg, lightseagreen 0%,lightseagreen 50%,#000000 50%,white 50%,white 100%);
 }
+
 .main_footer
 {
 	background: lightseagreen !important;
@@ -75,3 +76,55 @@ html
 	border-top: 3px solid lightseagreen;
 	font-weight: 800;
 }
+
+/*Admin Css*/
+.admin_wrapper
+{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center ;
+	align-items: center;
+}
+
+.messageBox
+{
+	border: 1px solid lightseagreen;
+	border-radius: 5px;
+	min-height: 200px;
+}
+
+.messageHead
+{
+	background: lightseagreen;
+	border-radius: 5px;
+}
+
+.messageBody
+{
+	
+}
+
+.messageActions
+{
+	background: lightseagreen;
+	border-radius: 5px;
+}
+
+.messageActions a
+{
+	color: #000;
+	font-weight: 600;
+}
+
+.messageActions a:hover
+{
+	text-decoration: underline !important;
+}
+
+select
+{
+	option[disabled]: ;
+}
+
+
